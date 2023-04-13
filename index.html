@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="QuizApp.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <!-- Start Quiz Container -->
+        <div class="first" id="first-id">
+            <h1>Instructions</h1>
+            <p>When you start quiz the questions randomly appear in front of you. Answer these question and check your score at the end.</p>
+            <p>Total number of questions = <span id="questions"></span></p>
+            <!-- Start Quiz Button -->
+            <div class="quiz-button" id="start-btn" onclick="startQuiz()">
+                <a href="#" class="quiz-btn">
+                    <span>Start Quiz</span>
+                    <span>Start Quiz</span>
+                </a>
+            </div>
+        </div>
+        <!-- Quiz Questions -->
+        <div class="second display" id="second-id">
+            <h2 class="question-number"></h2>
+            <hr>
+            <h2 class="question"></h3>
+            <div class="option-container"></div>
+            <button id="next" onclick="next()">Next</button>
+            <hr>
+            <div class="answer-indicators"></div>
+        </div>
+        <!-- Quiz Result -->
+        <div class="third display" id="third-id">
+            <h1 style="text-align: center;">Quiz Result</h1>
+            <table class="table1">
+                <tr>
+                    <td>Total Question</td>
+                    <td class="total-question"></td>
+                </tr>
+                <tr>
+                    <td>Attempt</td>
+                    <td class="total-attempt"></td>
+                </tr>
+                <tr>
+                    <td>Correct</td>
+                    <td class="total-correct"></td>
+                </tr>
+                <tr>
+                    <td>Wrong</td>
+                    <td class="total-wrong"></td>
+                </tr>
+                <tr>
+                    <td>Percentage</td>
+                    <td class="Percentage"></td>
+                </tr>
+                <tr>
+                    <td>Your Total Score</td>
+                    <td class="total-score"></td>
+                </tr>
+            </table>
+
+            <div class="quiz-button" id="start-btn" onclick="resetQuiz()">
+                <a href="#" class="quiz-btn">
+                    <span>Reset Quiz</span>
+                    <span>Reset Quiz</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript Link -->
+    <script src="questions.js"></script>
+    <script src="QuizApp.js"></script>
+
+</body>
+</html>

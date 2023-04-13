@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.display{
+    display: none;
+}
+
+/* First CSS */
+.first, .second, .third{
+    /* background: linear-gradient(150deg, #0D4671,#92E1E2); */
+    /* background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); */
+    /* background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
+    background: linear-gradient(-600deg, #00DBDE 0%, #FC00FF 100%);
+    border-radius: 10px;
+    width: 50vw;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+.first p{
+    font-size: 1.3rem;
+    color: white;
+    margin-top: 1rem;
+}
+/* Start Quiz Button CSS */
+.quiz-button{
+    display: flex;
+}
+.quiz-btn{
+    border-radius: 13px;
+    position: relative;
+    width: 160px;
+    height: 50px;
+    margin: 15px 10px;
+    background-color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.quiz-btn::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #00DBDE;
+    /* background: linear-gradient(-600deg, #00DBDE 0%, #FC00FF 100%); */
+    transition: 0.4s ease-in-out;
+    transition-delay: 0.1;
+}
+.quiz-btn::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: #00DBDE;
+    /* background: linear-gradient(-120deg, #00DBDE 0%, #FC00FF 100%); */
+    transition: 0.4s ease-in-out;
+    transition-delay: 0.1;
+}
+.quiz-btn span{
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    font-size: 18px;
+    transition: 0.5s;
+}
+.quiz-btn span:nth-child(1){
+    transition-delay: 0.5s;
+}
+.quiz-btn span:nth-child(2){
+    transform: scale(3);
+    opacity: 0;
+    color: #fff;
+    font-weight: 600;
+    transition-delay: 0s;
+}
+.quiz-btn:hover::before,
+.quiz-btn:hover::after{
+    width: 50%;
+    transition-delay: 0s;
+}
+.quiz-btn:hover span:nth-child(1){
+    transform: scale(0);
+    transition-delay: 0s;
+}
+.quiz-btn:hover span:nth-child(2){
+    transform: scale(1);
+    opacity: 1;
+    z-index: 1;
+    transition-delay: 0.5s;
+}
+
+/* Second CSS */
+.second ul{
+    text-decoration: none;
+    list-style-type: none;
+}
+.question-number, #next{
+    margin-bottom: 1rem;
+}
+.question, .option-container{
+    margin: 1rem 0 1rem 0;
+}
+.option{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: rgba(255,255,255,0.5);
+    /* backdrop-filter: blur(5px); */
+    margin-top: 0.5rem;
+    cursor: pointer;
+    padding: 1rem;
+    opacity: 0;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease forwards;
+}
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.answered{
+    cursor: none;
+}
+.correct::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: green;
+    border-radius: 8px;
+    z-index: -1;
+    animation: slideInLeft 0.5s ease forwards;
+}
+@keyframes slideInLeft {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+.wrong::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    border-radius: 8px;
+    z-index: -1;
+    animation: slideInLeft 0.5s ease forwards;
+}
+.already-answered{
+    pointer-events: none;
+}
+.answer-indicators{
+    display: flex;
+    margin-top: 1rem;
+}
+.answer-indicators div{
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.5);
+}
+.second .answer-indicators .correct1{
+    background-color: green;
+    background-image: url("correct.png");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.second .answer-indicators .wrong1{
+    background-color: red;
+    background-image: url("wrong.png");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#next{
+    padding: 0.6rem;
+    border-radius: 9px;
+    position: relative;
+    border: none;
+    width: 5.5rem;
+    height: 2.8rem;
+    background-color: rgba(255,255,255,0.5);
+    /* background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%); */
+    /* background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%); */
+    /* background-color: #00DBDE; */
+    /* background-image: linear-gradient( 135deg, #92FFC0 10%, #002661 100%); */
+    /* background-image: linear-gradient( 135deg, #F97794 10%, #623AA2 100%); */
+    /* background-image: linear-gradient( 135deg, #F761A1 10%, #8C1BAB 100%); */
+    /* background-image: radial-gradient( circle farthest-corner at 10.2% 55.8%,  rgba(252,37,103,1) 0%, rgba(250,38,151,1) 46.2%, rgba(186,8,181,1) 90.1% ); */
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Third CSS */
+.third{
+    text-align: center;
+}
+.table1{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+}
+.table1 tr td{
+    border: 1px solid white;
+    padding: 0.6rem;
+    font-weight: 600;
+    text-align: left;
+    font-size: 1.2rem;
+}
